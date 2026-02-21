@@ -658,12 +658,14 @@ section {
 .contact {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     color: var(--color-white);
+    padding: var(--spacing-xl) 0;
 }
 
 .contact-content {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr 1fr;
     gap: var(--spacing-xl);
+    align-items: start;
 }
 
 .contact-description {
@@ -1113,21 +1115,11 @@ section {
     /* Center contact section on mobile */
     .contact-content {
         grid-template-columns: 1fr;
-        gap: var(--spacing-lg);
+        gap: var(--spacing-xl);
     }
 
     .contact-info {
         text-align: center;
-    }
-
-    .contact-methods {
-        max-width: 500px;
-        margin: 0 auto;
-    }
-
-    .contact-form-wrapper {
-        max-width: 500px;
-        margin: 0 auto;
     }
 
     /* Adjust mascot for mobile */
@@ -1146,17 +1138,24 @@ section {
         bottom: 90px;
         font-size: 0.8rem;
     }
-
-    /* Add padding to contact section for mobile bar */
-    .contact {
-        padding-bottom: calc(var(--spacing-xl) + 60px);
-    }
 }
 
 @media (max-width: 480px) {
     :root {
         --spacing-xl: 3rem;
         --spacing-lg: 2rem;
+    }
+
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .contact-form-wrapper {
+        padding: var(--spacing-md);
+    }
+
+    .contact-method {
+        padding: var(--spacing-sm);
     }
 
     .hero-title {

@@ -112,3 +112,5 @@ This is a fully responsive single-page website for Cabinet Avocat Gurev Dorina, 
 ### Mobile
 ![Mobile View](screenshots/mobile.png)
 
+![Mobile View](screenshots/mobile1.png)
+
