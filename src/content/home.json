@@ -1,0 +1,66 @@
+{
+  "site_info": {
+    "title": "Cabinet Avocat Gurev Dorina | Servicii Juridice Chișinău",
+    "description": "Cabinet Avocat Gurev Dorina - Servicii juridice profesionale în Chișinău"
+  },
+  "hero": {
+    "title_line1": "Protecție Juridică",
+    "title_line2": "de Încredere",
+    "description": "Reprezentare profesională și consultanță juridică cu experiență în Chișinău. Soluții personalizate pentru nevoile dumneavoastră legale.",
+    "primary_button": "Programează o Consultație",
+    "secondary_button": "Sună Acum"
+  },
+  "attorney": {
+    "name": "Gurev Dorina",
+    "title": "Doctor în Drept",
+    "license_number": "Nr. 3179 / 11 August 2017",
+    "bar": "Baroul Chișinău"
+  },
+  "about": {
+    "tag": "Despre Cabinet",
+    "title": "Experiență și Profesionalism",
+    "paragraph1": "Cabinet Avocat Gurev Dorina oferă servicii juridice complete pentru persoane fizice și juridice în Chișinău și pe întreg teritoriul Republicii Moldova. Cu o experiență solidă în practică juridică și o înțelegere profundă a legislației moldovenești, oferim soluții personalizate pentru fiecare client.",
+    "paragraph2": "Abordarea noastră se bazează pe comunicare transparentă, dedicare completă fiecărui caz și utilizarea celor mai bune strategii juridice pentru a proteja drepturile și interesele clienților noștri.",
+    "stats": [
+      {"number": "10+", "label": "Ani Experiență"},
+      {"number": "500+", "label": "Cazuri Rezolvate"},
+      {"number": "95%", "label": "Rate de Succes"}
+    ]
+  },
+  "services": {
+    "tag": "Servicii",
+    "title": "Domenii de Practică",
+    "items": [
+      {"title": "Drept Penal", "description": "Apărare în cauze penale, reprezentare în toate etapele procesului penal"},
+      {"title": "Delincvența Juvenilă", "description": "Apărarea minorilor în conflict cu legea, protecția drepturilor copiilor"},
+      {"title": "Drept Penal: Partea Generală", "description": "Consultanță și reprezentare în aspecte generale ale dreptului penal"},
+      {"title": "Drept Penal: Partea Specială", "description": "Specializare în infracțiuni specifice și cazuri complexe de drept penal"}
+    ]
+  },
+  "why_us": {
+    "tag": "Avantaje",
+    "title": "De Ce Să Ne Alegeți",
+    "features": [
+      {"number": "01", "title": "Experiență Vastă", "description": "Peste 10 ani de practică juridică în diverse domenii, cu sute de cazuri rezolvate cu succes."},
+      {"number": "02", "title": "Abordare Personalizată", "description": "Fiecare caz este tratat individual, cu strategii adaptate specific situației dumneavoastră."},
+      {"number": "03", "title": "Comunicare Transparentă", "description": "Veți fi informat constant despre progresul cazului dumneavoastră, fără costuri ascunse."},
+      {"number": "04", "title": "Disponibilitate", "description": "Programări flexibile, inclusiv în afara programului standard, pentru confortul dumneavoastră."}
+    ]
+  },
+  "contact": {
+    "tag": "Contactați-ne",
+    "title": "Programează o Consultație",
+    "description": "Sunteți bineveniți să ne contactați pentru o consultație inițială. Vă vom răspunde în cel mai scurt timp posibil.",
+    "phone": "+373 692 57 335",
+    "email": "gurev.dorina.drept@gmail.com",
+    "address": "str. Academician Sergiu Rădăuțan, 9 ap. 163\nChișinău, Moldova",
+    "schedule": "Luni - Vineri: 9:00 - 18:00\nProgramări în afara programului disponibile"
+  },
+  "footer": {
+    "tagline": "Protecție juridică profesională în Chișinău",
+    "copyright": "© 2026 Cabinet Avocat Gurev Dorina. Toate drepturile rezervate."
+  },
+  "mascot": {
+    "message": "Aveți nevoie de asistență juridică? Suntem aici pentru dumneavoastră!"
+  }
+}
