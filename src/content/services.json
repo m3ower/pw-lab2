@@ -1,0 +1,22 @@
+{
+  "tag": "Servicii",
+  "title": "Domenii de Practică",
+  "services": [
+    {
+      "title": "Drept Penal",
+      "description": "Apărare în cauze penale, reprezentare în toate etapele procesului penal"
+    },
+    {
+      "title": "Delincvența Juvenilă",
+      "description": "Apărarea minorilor în conflict cu legea, protecția drepturilor copiilor"
+    },
+    {
+      "title": "Drept Penal: Partea Generală",
+      "description": "Consultanță și reprezentare în aspecte generale ale dreptului penal"
+    },
+    {
+      "title": "Drept Penal: Partea Specială",
+      "description": "Specializare în infracțiuni specifice și cazuri complexe de drept penal"
+    }
+  ]
+}

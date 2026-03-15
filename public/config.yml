@@ -1,0 +1,17 @@
+backend:
+  name: test-repo
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "settings"
+    label: "Setări Site"
+    files:
+      - label: "Informații Generale"
+        name: "general"
+        file: "src/content/settings.json"
+        fields:
+          - {label: "Titlu Site", name: "site_title", widget: "string"}
+          - {label: "Telefon", name: "phone", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
