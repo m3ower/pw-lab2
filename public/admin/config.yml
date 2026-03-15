@@ -1,5 +1,7 @@
+local_backend: true
 backend:
-  name: test-repo
+  name: git-gateway
+  branch: main
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
@@ -10,7 +12,7 @@ collections:
     files:
       - label: "Pagina Principală"
         name: "home"
-        file: "src/content/home.json"
+        file: "home.json"
         fields:
           # Site Info
           - label: "Informații Site"
