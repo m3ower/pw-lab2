@@ -11,6 +11,7 @@ import '../styles.css';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Cabinet Avocat Gurev Dorina - Servicii juridice profesionale în Chișinău">
     <title>{title}</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -329,5 +330,17 @@ import '../styles.css';
         </div>
     </div>
 </footer>
+<script>
+    const netlifyIdentity = (window as any).netlifyIdentity;
+    if (netlifyIdentity) {
+        netlifyIdentity.on("init", (user: any) => {
+            if (!user) {
+                netlifyIdentity.on("login", () => {
+                    document.location.href = "/admin/";
+                });
+            }
+        });
+    }
+</script>
 </body>
 </html>
