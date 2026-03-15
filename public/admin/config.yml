@@ -17,8 +17,8 @@ collections:
             name: "site_info"
             widget: "object"
             fields:
-              - {label: "Titlu Site", name: "title", widget: "string", default: "Cabinet Avocat Gurev Dorina"}
-              - {label: "Descriere Meta", name: "description", widget: "text"}
+              - {label: "Titlu Site", name: "title", widget: "string", default: "Cabinet Avocat Gurev Dorina | Servicii Juridice Chișinău"}
+              - {label: "Descriere Meta", name: "description", widget: "text", default: "Cabinet Avocat Gurev Dorina - Servicii juridice profesionale în Chișinău"}
 
           # Hero Section
           - label: "Secțiune Hero"
@@ -27,7 +27,7 @@ collections:
             fields:
               - {label: "Titlu Linie 1", name: "title_line1", widget: "string", default: "Protecție Juridică"}
               - {label: "Titlu Linie 2", name: "title_line2", widget: "string", default: "de Încredere"}
-              - {label: "Descriere", name: "description", widget: "text"}
+              - {label: "Descriere", name: "description", widget: "text", default: "Reprezentare profesională și consultanță juridică cu experiență în Chișinău. Soluții personalizate pentru nevoile dumneavoastră legale."}
               - {label: "Buton Primar", name: "primary_button", widget: "string", default: "Programează o Consultație"}
               - {label: "Buton Secundar", name: "secondary_button", widget: "string", default: "Sună Acum"}
 
@@ -48,11 +48,15 @@ collections:
             fields:
               - {label: "Tag Secțiune", name: "tag", widget: "string", default: "Despre Cabinet"}
               - {label: "Titlu", name: "title", widget: "string", default: "Experiență și Profesionalism"}
-              - {label: "Paragraf 1", name: "paragraph1", widget: "text"}
-              - {label: "Paragraf 2", name: "paragraph2", widget: "text"}
+              - {label: "Paragraf 1", name: "paragraph1", widget: "text", default: "Cabinet Avocat Gurev Dorina oferă servicii juridice complete pentru persoane fizice și juridice în Chișinău și pe întreg teritoriul Republicii Moldova. Cu o experiență solidă în practică juridică și o înțelegere profundă a legislației moldovenești, oferim soluții personalizate pentru fiecare client."}
+              - {label: "Paragraf 2", name: "paragraph2", widget: "text", default: "Abordarea noastră se bazează pe comunicare transparentă, dedicare completă fiecărui caz și utilizarea celor mai bune strategii juridice pentru a proteja drepturile și interesele clienților noștri."}
               - label: "Statistici"
                 name: "stats"
                 widget: "list"
+                default:
+                  - {number: "10+", label: "Ani Experiență"}
+                  - {number: "500+", label: "Cazuri Rezolvate"}
+                  - {number: "95%", label: "Rate de Succes"}
                 fields:
                   - {label: "Număr", name: "number", widget: "string"}
                   - {label: "Label", name: "label", widget: "string"}
@@ -67,6 +71,11 @@ collections:
               - label: "Lista Servicii"
                 name: "items"
                 widget: "list"
+                default:
+                  - {title: "Drept Penal", description: "Apărare în cauze penale, reprezentare în toate etapele procesului penal"}
+                  - {title: "Delincvența Juvenilă", description: "Apărarea minorilor în conflict cu legea, protecția drepturilor copiilor"}
+                  - {title: "Drept Penal: Partea Generală", description: "Consultanță și reprezentare în aspecte generale ale dreptului penal"}
+                  - {title: "Drept Penal: Partea Specială", description: "Specializare în infracțiuni specifice și cazuri complexe de drept penal"}
                 fields:
                   - {label: "Emoji Icon", name: "icon", widget: "string"}
                   - {label: "Titlu", name: "title", widget: "string"}
@@ -82,6 +91,11 @@ collections:
               - label: "Caracteristici"
                 name: "features"
                 widget: "list"
+                default:
+                  - {number: "01", title: "Experiență Vastă", description: "Peste 10 ani de practică juridică în diverse domenii, cu sute de cazuri rezolvate cu succes."}
+                  - {number: "02", title: "Abordare Personalizată", description: "Fiecare caz este tratat individual, cu strategii adaptate specific situației dumneavoastră."}
+                  - {number: "03", title: "Comunicare Transparentă", description: "Veți fi informat constant despre progresul cazului dumneavoastră, fără costuri ascunse."}
+                  - {number: "04", title: "Disponibilitate", description: "Programări flexibile, inclusiv în afara programului standard, pentru confortul dumneavoastră."}
                 fields:
                   - {label: "Număr", name: "number", widget: "string"}
                   - {label: "Titlu", name: "title", widget: "string"}
@@ -94,11 +108,11 @@ collections:
             fields:
               - {label: "Tag Secțiune", name: "tag", widget: "string", default: "Contactați-ne"}
               - {label: "Titlu", name: "title", widget: "string", default: "Programează o Consultație"}
-              - {label: "Descriere", name: "description", widget: "text"}
+              - {label: "Descriere", name: "description", widget: "text", default: "Sunteți bineveniți să ne contactați pentru o consultație inițială. Vă vom răspunde în cel mai scurt timp posibil."}
               - {label: "Telefon", name: "phone", widget: "string", default: "+373 692 57 335"}
               - {label: "Email", name: "email", widget: "string", default: "gurev.dorina.drept@gmail.com"}
-              - {label: "Adresă", name: "address", widget: "text"}
-              - {label: "Program", name: "schedule", widget: "text"}
+              - {label: "Adresă", name: "address", widget: "text", default: "str. Academician Sergiu Rădăuțan, 9 ap. 163\nChișinău, Moldova"}
+              - {label: "Program", name: "schedule", widget: "text", default: "Luni - Vineri: 9:00 - 18:00\nProgramări în afara programului disponibile"}
 
           # Footer
           - label: "Footer"
