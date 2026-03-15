@@ -1,0 +1,38 @@
+---
+const title = "Cabinet Avocat Gurev Dorina | Servicii Juridice Chișinău";
+---
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        burgundy: {
+                            dark: '#3d1f1f',
+                            DEFAULT: '#5c2e2e',
+                            light: '#7a3e3e',
+                        },
+                        sienna: {
+                            DEFAULT: '#a0522d',
+                            light: '#c07854',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="/src/reset.css">
+    <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+    <h1>Astro + Your Law Office - Working!</h1>
+    <p>If you see this, Step 2 is complete!</p>
+</body>
+</html>
