@@ -5,13 +5,112 @@ media_folder: "public/uploads"
 public_folder: "/uploads"
 
 collections:
-  - name: "settings"
-    label: "Setări Site"
+  - name: "pages"
+    label: "Pagini"
     files:
-      - label: "Informații Generale"
-        name: "general"
-        file: "src/content/settings.json"
+      - label: "Pagina Principală"
+        name: "home"
+        file: "src/content/home.json"
         fields:
-          - {label: "Titlu Site", name: "site_title", widget: "string"}
-          - {label: "Telefon", name: "phone", widget: "string"}
-          - {label: "Email", name: "email", widget: "string"}
+          # Site Info
+          - label: "Informații Site"
+            name: "site_info"
+            widget: "object"
+            fields:
+              - {label: "Titlu Site", name: "title", widget: "string", default: "Cabinet Avocat Gurev Dorina"}
+              - {label: "Descriere Meta", name: "description", widget: "text"}
+
+          # Hero Section
+          - label: "Secțiune Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Titlu Linie 1", name: "title_line1", widget: "string", default: "Protecție Juridică"}
+              - {label: "Titlu Linie 2", name: "title_line2", widget: "string", default: "de Încredere"}
+              - {label: "Descriere", name: "description", widget: "text"}
+              - {label: "Buton Primar", name: "primary_button", widget: "string", default: "Programează o Consultație"}
+              - {label: "Buton Secundar", name: "secondary_button", widget: "string", default: "Sună Acum"}
+
+          # Attorney Info
+          - label: "Informații Avocat"
+            name: "attorney"
+            widget: "object"
+            fields:
+              - {label: "Nume", name: "name", widget: "string", default: "Gurev Dorina"}
+              - {label: "Titlu", name: "title", widget: "string", default: "Doctor în Drept"}
+              - {label: "Număr Licență", name: "license_number", widget: "string", default: "Nr. 3179 / 11 August 2017"}
+              - {label: "Barou", name: "bar", widget: "string", default: "Baroul Chișinău"}
+
+          # About Section
+          - label: "Secțiune Despre"
+            name: "about"
+            widget: "object"
+            fields:
+              - {label: "Tag Secțiune", name: "tag", widget: "string", default: "Despre Cabinet"}
+              - {label: "Titlu", name: "title", widget: "string", default: "Experiență și Profesionalism"}
+              - {label: "Paragraf 1", name: "paragraph1", widget: "text"}
+              - {label: "Paragraf 2", name: "paragraph2", widget: "text"}
+              - label: "Statistici"
+                name: "stats"
+                widget: "list"
+                fields:
+                  - {label: "Număr", name: "number", widget: "string"}
+                  - {label: "Label", name: "label", widget: "string"}
+
+          # Services
+          - label: "Servicii"
+            name: "services"
+            widget: "object"
+            fields:
+              - {label: "Tag Secțiune", name: "tag", widget: "string", default: "Servicii"}
+              - {label: "Titlu", name: "title", widget: "string", default: "Domenii de Practică"}
+              - label: "Lista Servicii"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Emoji Icon", name: "icon", widget: "string"}
+                  - {label: "Titlu", name: "title", widget: "string"}
+                  - {label: "Descriere", name: "description", widget: "text"}
+
+          # Why Us
+          - label: "De Ce Noi"
+            name: "why_us"
+            widget: "object"
+            fields:
+              - {label: "Tag Secțiune", name: "tag", widget: "string", default: "Avantaje"}
+              - {label: "Titlu", name: "title", widget: "string", default: "De Ce Să Ne Alegeți"}
+              - label: "Caracteristici"
+                name: "features"
+                widget: "list"
+                fields:
+                  - {label: "Număr", name: "number", widget: "string"}
+                  - {label: "Titlu", name: "title", widget: "string"}
+                  - {label: "Descriere", name: "description", widget: "text"}
+
+          # Contact
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - {label: "Tag Secțiune", name: "tag", widget: "string", default: "Contactați-ne"}
+              - {label: "Titlu", name: "title", widget: "string", default: "Programează o Consultație"}
+              - {label: "Descriere", name: "description", widget: "text"}
+              - {label: "Telefon", name: "phone", widget: "string", default: "+373 692 57 335"}
+              - {label: "Email", name: "email", widget: "string", default: "gurev.dorina.drept@gmail.com"}
+              - {label: "Adresă", name: "address", widget: "text"}
+              - {label: "Program", name: "schedule", widget: "text"}
+
+          # Footer
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - {label: "Tagline", name: "tagline", widget: "string", default: "Protecție juridică profesională în Chișinău"}
+              - {label: "Copyright", name: "copyright", widget: "string", default: "© 2026 Cabinet Avocat Gurev Dorina. Toate drepturile rezervate."}
+
+          # Mascot
+          - label: "Mascot"
+            name: "mascot"
+            widget: "object"
+            fields:
+              - {label: "Mesaj", name: "message", widget: "string", default: "Aveți nevoie de asistență juridică? Suntem aici pentru dumneavoastră!"}
