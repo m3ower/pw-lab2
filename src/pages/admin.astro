@@ -1,5 +1,5 @@
 ---
-// Decap CMS admin page - no auth required (test-repo backend)
+// Decap CMS admin page - GitHub backend with manual init
 ---
 <!DOCTYPE html>
 <html>
@@ -7,9 +7,138 @@
     <meta charset='utf-8' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content Manager</title>
-    <link href='/admin/config.yml' type='text/yaml' rel='cms-config-url' />
 </head>
 <body>
+<script is:inline>
+    window.CMS_MANUAL_INIT = true;
+</script>
 <script is:inline src='https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js'></script>
+<script is:inline>
+    CMS.init({
+        config: {
+            backend: {
+                name: 'github',
+                repo: 'm3ower/pw-lab2',
+                branch: 'main',
+                base_url: 'https://gurevdorinaca.vercel.app',
+                auth_endpoint: 'api/auth',
+            },
+            media_folder: 'public/uploads',
+            public_folder: '/uploads',
+            collections: [
+                {
+                    name: 'pages',
+                    label: 'Pagini',
+                    files: [
+                        {
+                            label: 'Pagina Principală',
+                            name: 'home',
+                            file: 'public/content/home.json',
+                            fields: [
+                                {
+                                    label: 'Informații Site', name: 'site_info', widget: 'object',
+                                    fields: [
+                                        { label: 'Titlu Site', name: 'title', widget: 'string' },
+                                        { label: 'Descriere Meta', name: 'description', widget: 'text' },
+                                    ]
+                                },
+                                {
+                                    label: 'Secțiune Hero', name: 'hero', widget: 'object',
+                                    fields: [
+                                        { label: 'Titlu Linie 1', name: 'title_line1', widget: 'string' },
+                                        { label: 'Titlu Linie 2', name: 'title_line2', widget: 'string' },
+                                        { label: 'Descriere', name: 'description', widget: 'text' },
+                                        { label: 'Buton Primar', name: 'primary_button', widget: 'string' },
+                                        { label: 'Buton Secundar', name: 'secondary_button', widget: 'string' },
+                                    ]
+                                },
+                                {
+                                    label: 'Informații Avocat', name: 'attorney', widget: 'object',
+                                    fields: [
+                                        { label: 'Nume', name: 'name', widget: 'string' },
+                                        { label: 'Titlu', name: 'title', widget: 'string' },
+                                        { label: 'Număr Licență', name: 'license_number', widget: 'string' },
+                                        { label: 'Barou', name: 'bar', widget: 'string' },
+                                    ]
+                                },
+                                {
+                                    label: 'Secțiune Despre', name: 'about', widget: 'object',
+                                    fields: [
+                                        { label: 'Tag Secțiune', name: 'tag', widget: 'string' },
+                                        { label: 'Titlu', name: 'title', widget: 'string' },
+                                        { label: 'Paragraf 1', name: 'paragraph1', widget: 'text' },
+                                        { label: 'Paragraf 2', name: 'paragraph2', widget: 'text' },
+                                        {
+                                            label: 'Statistici', name: 'stats', widget: 'list',
+                                            fields: [
+                                                { label: 'Număr', name: 'number', widget: 'string' },
+                                                { label: 'Label', name: 'label', widget: 'string' },
+                                            ]
+                                        },
+                                    ]
+                                },
+                                {
+                                    label: 'Servicii', name: 'services', widget: 'object',
+                                    fields: [
+                                        { label: 'Tag Secțiune', name: 'tag', widget: 'string' },
+                                        { label: 'Titlu', name: 'title', widget: 'string' },
+                                        {
+                                            label: 'Lista Servicii', name: 'items', widget: 'list',
+                                            fields: [
+                                                { label: 'Emoji Icon', name: 'icon', widget: 'string' },
+                                                { label: 'Titlu', name: 'title', widget: 'string' },
+                                                { label: 'Descriere', name: 'description', widget: 'text' },
+                                            ]
+                                        },
+                                    ]
+                                },
+                                {
+                                    label: 'De Ce Noi', name: 'why_us', widget: 'object',
+                                    fields: [
+                                        { label: 'Tag Secțiune', name: 'tag', widget: 'string' },
+                                        { label: 'Titlu', name: 'title', widget: 'string' },
+                                        {
+                                            label: 'Caracteristici', name: 'features', widget: 'list',
+                                            fields: [
+                                                { label: 'Număr', name: 'number', widget: 'string' },
+                                                { label: 'Titlu', name: 'title', widget: 'string' },
+                                                { label: 'Descriere', name: 'description', widget: 'text' },
+                                            ]
+                                        },
+                                    ]
+                                },
+                                {
+                                    label: 'Contact', name: 'contact', widget: 'object',
+                                    fields: [
+                                        { label: 'Tag Secțiune', name: 'tag', widget: 'string' },
+                                        { label: 'Titlu', name: 'title', widget: 'string' },
+                                        { label: 'Descriere', name: 'description', widget: 'text' },
+                                        { label: 'Telefon', name: 'phone', widget: 'string' },
+                                        { label: 'Email', name: 'email', widget: 'string' },
+                                        { label: 'Adresă', name: 'address', widget: 'text' },
+                                        { label: 'Program', name: 'schedule', widget: 'text' },
+                                    ]
+                                },
+                                {
+                                    label: 'Footer', name: 'footer', widget: 'object',
+                                    fields: [
+                                        { label: 'Tagline', name: 'tagline', widget: 'string' },
+                                        { label: 'Copyright', name: 'copyright', widget: 'string' },
+                                    ]
+                                },
+                                {
+                                    label: 'Mascot', name: 'mascot', widget: 'object',
+                                    fields: [
+                                        { label: 'Mesaj', name: 'message', widget: 'string' },
+                                    ]
+                                },
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    });
+</script>
 </body>
 </html>
