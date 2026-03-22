@@ -1,7 +1,13 @@
 ---
-const title = "Cabinet Avocat Gurev Dorina | Servicii Juridice Chișinău";
+import fs from 'fs';
+import path from 'path';
 import '../reset.css';
 import '../styles.css';
+
+const contentPath = path.join(process.cwd(), 'public/content/home.json');
+const content = JSON.parse(fs.readFileSync(contentPath, 'utf-8'));
+
+const { site_info, hero, attorney, about, services, why_us, contact, footer, mascot } = content;
 ---
 
 <!DOCTYPE html>
@@ -9,9 +15,8 @@ import '../styles.css';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cabinet Avocat Gurev Dorina - Servicii juridice profesionale în Chișinău">
-    <title>{title}</title>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <meta name="description" content={site_info.description}>
+    <title>{site_info.title}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -64,7 +69,7 @@ import '../styles.css';
                         <span class="menu-btn-icon">📍</span>
                         <span class="menu-btn-text">Deschide în Hărți</span>
                     </a>
-                    <a href="tel:+37369257335" class="mobile-menu-btn">
+                    <a href={`tel:${contact.phone.replace(/\s/g, '')}`} class="mobile-menu-btn">
                         <span class="menu-btn-icon">📞</span>
                         <span class="menu-btn-text">Apel Urgent</span>
                     </a>
@@ -81,16 +86,13 @@ import '../styles.css';
         <div class="hero-content">
             <div class="hero-text">
                 <h1 class="hero-title">
-                    <span class="title-line">Protecție Juridică</span>
-                    <span class="title-line">de Încredere</span>
+                    <span class="title-line">{hero.title_line1}</span>
+                    <span class="title-line">{hero.title_line2}</span>
                 </h1>
-                <p class="hero-description">
-                    Reprezentare profesională și consultanță juridică cu experiență în Chișinău.
-                    Soluții personalizate pentru nevoile dumneavoastră legale.
-                </p>
+                <p class="hero-description">{hero.description}</p>
                 <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">Programează o Consultație</a>
-                    <a href="tel:+37369257335" class="btn btn-secondary">Sună Acum</a>
+                    <a href="#contact" class="btn btn-primary">{hero.primary_button}</a>
+                    <a href={`tel:${contact.phone.replace(/\s/g, '')}`} class="btn btn-secondary">{hero.secondary_button}</a>
                 </div>
             </div>
             <div class="attorney-card">
@@ -98,16 +100,16 @@ import '../styles.css';
                     <span class="badge-icon">⚖</span>
                     <span class="badge-text">Avocat Licențiat</span>
                 </div>
-                <h2 class="attorney-name">Gurev Dorina</h2>
-                <p class="attorney-title">Doctor în Drept</p>
+                <h2 class="attorney-name">{attorney.name}</h2>
+                <p class="attorney-title">{attorney.title}</p>
                 <div class="attorney-credentials">
                     <div class="credential-item">
                         <span class="credential-label">Licență</span>
-                        <span class="credential-value">Nr. 3179 / 11 August 2017</span>
+                        <span class="credential-value">{attorney.license_number}</span>
                     </div>
                     <div class="credential-item">
                         <span class="credential-label">Barou</span>
-                        <span class="credential-value">Baroul Chișinău</span>
+                        <span class="credential-value">{attorney.bar}</span>
                     </div>
                 </div>
             </div>
@@ -119,30 +121,20 @@ import '../styles.css';
 <section id="about" class="about">
     <div class="container">
         <div class="section-header">
-            <span class="section-tag">Despre Cabinet</span>
-            <h2 class="section-title">Experiență și Profesionalism</h2>
+            <span class="section-tag">{about.tag}</span>
+            <h2 class="section-title">{about.title}</h2>
         </div>
         <div class="about-content">
             <div class="about-text">
-                <p class="about-description">
-                    Cabinet Avocat Gurev Dorina oferă servicii juridice complete pentru persoane fizice și juridice în Chișinău și pe întreg teritoriul Republicii Moldova. Cu o experiență solidă în practică juridică și o înțelegere profundă a legislației moldovenești, oferim soluții personalizate pentru fiecare client.
-                </p>
-                <p class="about-description">
-                    Abordarea noastră se bazează pe comunicare transparentă, dedicare completă fiecărui caz și utilizarea celor mai bune strategii juridice pentru a proteja drepturile și interesele clienților noștri.
-                </p>
+                <p class="about-description">{about.paragraph1}</p>
+                <p class="about-description">{about.paragraph2}</p>
                 <div class="about-highlights">
-                    <div class="highlight-item">
-                        <span class="highlight-number">10+</span>
-                        <span class="highlight-label">Ani Experiență</span>
-                    </div>
-                    <div class="highlight-item">
-                        <span class="highlight-number">500+</span>
-                        <span class="highlight-label">Cazuri Rezolvate</span>
-                    </div>
-                    <div class="highlight-item">
-                        <span class="highlight-number">95%</span>
-                        <span class="highlight-label">Rate de Succes</span>
-                    </div>
+                    {about.stats.map((stat: { number: string; label: string }) => (
+                            <div class="highlight-item">
+                                <span class="highlight-number">{stat.number}</span>
+                                <span class="highlight-label">{stat.label}</span>
+                            </div>
+                    ))}
                 </div>
             </div>
         </div>
@@ -153,26 +145,16 @@ import '../styles.css';
 <section id="services" class="services">
     <div class="container">
         <div class="section-header">
-            <span class="section-tag">Servicii</span>
-            <h2 class="section-title">Domenii de Practică</h2>
+            <span class="section-tag">{services.tag}</span>
+            <h2 class="section-title">{services.title}</h2>
         </div>
         <div class="services-grid">
-            <div class="service-card">
-                <h3 class="service-title">Drept Penal</h3>
-                <p class="service-description">Apărare în cauze penale, reprezentare în toate etapele procesului penal</p>
-            </div>
-            <div class="service-card">
-                <h3 class="service-title">Delincvența Juvenilă</h3>
-                <p class="service-description">Apărarea minorilor în conflict cu legea, protecția drepturilor copiilor</p>
-            </div>
-            <div class="service-card">
-                <h3 class="service-title">Drept Penal: Partea Generală</h3>
-                <p class="service-description">Consultanță și reprezentare în aspecte generale ale dreptului penal</p>
-            </div>
-            <div class="service-card">
-                <h3 class="service-title">Drept Penal: Partea Specială</h3>
-                <p class="service-description">Specializare în infracțiuni specifice și cazuri complexe de drept penal</p>
-            </div>
+            {services.items.map((service: { title: string; description: string }) => (
+                    <div class="service-card">
+                        <h3 class="service-title">{service.title}</h3>
+                        <p class="service-description">{service.description}</p>
+                    </div>
+            ))}
         </div>
     </div>
 </section>
@@ -181,38 +163,17 @@ import '../styles.css';
 <section id="why-us" class="why-us">
     <div class="container">
         <div class="section-header">
-            <span class="section-tag">Avantaje</span>
-            <h2 class="section-title">De Ce Să Ne Alegeți</h2>
+            <span class="section-tag">{why_us.tag}</span>
+            <h2 class="section-title">{why_us.title}</h2>
         </div>
         <div class="features-grid">
-            <div class="feature-item">
-                <div class="feature-number">01</div>
-                <h3 class="feature-title">Experiență Vastă</h3>
-                <p class="feature-description">
-                    Peste 10 ani de practică juridică în diverse domenii, cu sute de cazuri rezolvate cu succes.
-                </p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-number">02</div>
-                <h3 class="feature-title">Abordare Personalizată</h3>
-                <p class="feature-description">
-                    Fiecare caz este tratat individual, cu strategii adaptate specific situației dumneavoastră.
-                </p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-number">03</div>
-                <h3 class="feature-title">Comunicare Transparentă</h3>
-                <p class="feature-description">
-                    Veți fi informat constant despre progresul cazului dumneavoastră, fără costuri ascunse.
-                </p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-number">04</div>
-                <h3 class="feature-title">Disponibilitate</h3>
-                <p class="feature-description">
-                    Programări flexibile, inclusiv în afara programului standard, pentru confortul dumneavoastră.
-                </p>
-            </div>
+            {why_us.features.map((feature: { number: string; title: string; description: string }) => (
+                    <div class="feature-item">
+                        <div class="feature-number">{feature.number}</div>
+                        <h3 class="feature-title">{feature.title}</h3>
+                        <p class="feature-description">{feature.description}</p>
+                    </div>
+            ))}
         </div>
     </div>
 </section>
@@ -222,35 +183,32 @@ import '../styles.css';
     <div class="container">
         <div class="contact-content">
             <div class="contact-info">
-                <span class="section-tag light">Contactați-ne</span>
-                <h2 class="section-title light">Programează o Consultație</h2>
-                <p class="contact-description">
-                    Sunteți bineveniți să ne contactați pentru o consultație inițială.
-                    Vă vom răspunde în cel mai scurt timp posibil.
-                </p>
+                <span class="section-tag light">{contact.tag}</span>
+                <h2 class="section-title light">{contact.title}</h2>
+                <p class="contact-description">{contact.description}</p>
                 <div class="contact-methods">
                     <div class="contact-method">
                         <div class="method-details">
                             <span class="method-label">Telefon Mobil</span>
-                            <a href="tel:+37369257335" class="method-value">+373 692 57 335</a>
+                            <a href={`tel:${contact.phone.replace(/\s/g, '')}`} class="method-value">{contact.phone}</a>
                         </div>
                     </div>
                     <div class="contact-method">
                         <div class="method-details">
                             <span class="method-label">Email</span>
-                            <a href="mailto:gurev.dorina.drept@gmail.com" class="method-value">gurev.dorina.drept@gmail.com</a>
+                            <a href={`mailto:${contact.email}`} class="method-value">{contact.email}</a>
                         </div>
                     </div>
                     <div class="contact-method">
                         <div class="method-details">
                             <span class="method-label">Adresă</span>
-                            <span class="method-value">str. Academician Sergiu Rădăuțan, 9 ap. 163<br>Chișinău, Moldova</span>
+                            <span class="method-value" set:html={contact.address.replace(/\n/g, '<br>')}></span>
                         </div>
                     </div>
                     <div class="contact-method">
                         <div class="method-details">
                             <span class="method-label">Program</span>
-                            <span class="method-value">Luni - Vineri: 9:00 - 18:00<br>Programări în afara programului disponibile</span>
+                            <span class="method-value" set:html={contact.schedule.replace(/\n/g, '<br>')}></span>
                         </div>
                     </div>
                 </div>
@@ -294,7 +252,7 @@ import '../styles.css';
 <!-- Mascot -->
 <div class="mascot-container">
     <div class="mascot-message">
-        Aveți nevoie de asistență juridică? Suntem aici pentru dumneavoastră!
+        {mascot.message}
     </div>
     <div class="mascot">
         <img src="/lady-justice.png" alt="Lady Justice" class="mascot-image">
@@ -311,36 +269,22 @@ import '../styles.css';
                         <span class="logo-icon">⚖</span>
                         <span>CA Gurev Dorina</span>
                     </div>
-                    <p class="footer-description">
-                        Protecție juridică profesională în Chișinău
-                    </p>
+                    <p class="footer-description">{footer.tagline}</p>
                 </div>
             </div>
             <div class="footer-contact">
                 <h3 class="footer-heading">Contact</h3>
-                <p>+373 692 57 335</p>
-                <p>gurev.dorina.drept@gmail.com</p>
+                <p>{contact.phone}</p>
+                <p>{contact.email}</p>
                 <h3 class="footer-heading">Licență</h3>
-                <p>Nr. 3179 / 11 August 2017</p>
-                <p>Baroul Chișinău</p>
+                <p>{attorney.license_number}</p>
+                <p>{attorney.bar}</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Cabinet Avocat Gurev Dorina. Toate drepturile rezervate.</p>
+            <p>{footer.copyright}</p>
         </div>
     </div>
 </footer>
-<script>
-    const netlifyIdentity = (window as any).netlifyIdentity;
-    if (netlifyIdentity) {
-        netlifyIdentity.on("init", (user: any) => {
-            if (!user) {
-                netlifyIdentity.on("login", () => {
-                    document.location.href = "/admin/";
-                });
-            }
-        });
-    }
-</script>
 </body>
 </html>

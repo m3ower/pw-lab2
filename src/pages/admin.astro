@@ -1,28 +1,15 @@
 ---
-// This page loads Decap CMS
+// Decap CMS admin page - no auth required (test-repo backend)
 ---
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset='utf-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content Manager</title>
     <link href='/admin/config.yml' type='text/yaml' rel='cms-config-url' />
-    <!-- Include Netlify Identity for login -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-<script is:inline src='https://unpkg.com/decap-cms@%5E3.0.0/dist/decap-cms.js'></script>
-<script>
-    const netlifyIdentity = (window as any).netlifyIdentity;
-    if (netlifyIdentity) {
-        netlifyIdentity.on("init", (user: any) => {
-            if (!user) {
-                netlifyIdentity.on("login", () => {
-                    document.location.href = "/admin/";
-                });
-            }
-        });
-    }
-</script>
+<script is:inline src='https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js'></script>
 </body>
 </html>
