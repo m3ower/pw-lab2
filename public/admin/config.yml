@@ -2,7 +2,7 @@ backend:
   name: github
   repo: m3ower/pw-lab2
   branch: main
-  base_url: https://test4-eta-nine.vercel.app
+  base_url: https://gurevdorinaca.vercel.app
   auth_endpoint: api/auth
 
 media_folder: "public/uploads"
